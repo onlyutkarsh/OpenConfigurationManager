@@ -16,7 +16,7 @@ namespace Company.OpenConfigurationManager
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(GuidList.guidOpenConfigurationManagerPkgString)]
+    [Guid(PackageGuids.guidOpenConfigurationManagerPkgString)]
     public sealed class OpenConfigurationManagerPackage : Package
     {
         public OpenConfigurationManagerPackage()
@@ -36,7 +36,7 @@ namespace Company.OpenConfigurationManager
             OleMenuCommandService mcs = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
             if (null != mcs)
             {
-                CommandID menuCommandID = new CommandID(GuidList.guidOpenConfigurationManagerCmdSet, (int)PkgCmdIDList.cmdidMyCommand);
+                CommandID menuCommandID = new CommandID(PackageGuids.guidOpenConfigurationManagerCmdSet, (int)PackageIds.cmdidMyCommand);
                 MenuCommand menuItem = new MenuCommand(MenuItemCallback, menuCommandID);
                 mcs.AddCommand(menuItem);
             }
